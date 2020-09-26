@@ -1,0 +1,51 @@
+<%# navbar is inserted magically through the layouts/application#%>
+
+<%# Search bar form inside the banner-index#%>
+
+<div class="banner-index shadow-sm">
+  <div class="row align-items-center">
+  <div class="form" style="margin: 0 auto;">
+
+    <%= simple_form_for :search, method: "get" do |f| %>
+      <div class="input-group">
+
+      <%= f.input :address, wrapper: false, label: false, placeholder: "Where are you going?" %>
+      <%= f.input :check_in, as: :string, required: false, wrapper: false, label: false, placeholder: "Check in", input_html: {class: "datepicker"} %>
+      <%= f.input :check_out, as: :string, required: false, wrapper: false, label: false, placeholder: "Check out", input_html: {class: "datepicker"} %>
+      <%= f.input :number_of_guests, wrapper: false, label: false, as: :integer, placeholder: "Guests" %>
+        <div class="input-group-append">
+        <%= f.button :submit, "Go", class: "btn btn-primary" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  </div>
+</div>
+
+<%# Displaying each treehouse #%>
+
+<div class="container pt-3 pb-3">
+    <% @treehouses.each do |treehouse| %>
+    <%= link_to treehouse_path(treehouse), class: "cards-link" do %>
+    <div class="row shadow p-3 mb-3 mt-3 bg-white rounded" id="treehouse-card">
+
+      <div class="col-6 col-md-4">
+        <img src="https://source.unsplash.com/1600x900/?tree" alt="" class="w-100 h-100 rounded">
+      </div>
+      <div class="col-12 col-sm-6 col-md-8">
+        <h3 style="color: #119358;"><%= treehouse.name %></h3>
+        <p style="color: #000000;"><%= treehouse.address %></p>
+        <p style="color: #000000;"><%= treehouse.capacity %> guests | <%= treehouse.beds %> beds </p>
+        <div class="text-right" style="color: #000000;"><%= treehouse.price_per_night %> $ / night</div>
+      </div>
+
+    </div>
+    <% end %>
+     <% end %>
+
+</div>
+
+
+
+
+

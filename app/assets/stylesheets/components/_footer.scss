@@ -1,7 +1,21 @@
 .footer {
-  background-size: cover;
   background-color: $dark-gray;
-  background-repeat:no-repeat;
-  height: 100px;
-  margin-bottom: 0;
+  text-align: center;
+  padding: 20px;
+  margin-bottom: 0px;
 }
+
+.footer a {
+  font-size: 45px;
+  color: $green3;
+}
+
+.footer p {
+  color: rgb(233, 233, 233);
+  font-size: 16px;
+}
+
+.footer a:hover {
+  color: $green2;
+}
+

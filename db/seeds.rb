@@ -5,3 +5,44 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require 'faker'
+# TODO: Write a seed to insert 100 posts in the database
+
+Treehouse.destroy_all
+User.destroy_all
+
+puts 'Creating a fake user...'
+User.create(
+  first_name: Faker::Name.first_name,
+  last_name: Faker::Name.last_name,
+  description: Faker::Lorem.paragraphs,
+  email: Faker::Internet.email,
+  phone_number: Faker::PhoneNumber.cell_phone,
+  password: "passwords"
+
+  )
+puts "Completed user #{User.last.first_name}!"
+
+puts 'Creating 5 fake treehouses...'
+5.times do
+  treehouse = Treehouse.new(
+    name: Faker::Lorem.word,
+    address: Faker::Address.street_address,
+    description: Faker::Lorem.paragraphs,
+    price_per_night: rand(1000..5000),
+    beds: rand(1..5),
+    capacity: rand(1..10)
+  )
+
+  treehouse.user = User.last
+  treehouse.save
+  puts "treehouse: #{treehouse.name}"
+  puts "owner: #{treehouse.user.first_name}"
+end
+puts "Completed treehouses!"
+
+
+
+
+
+

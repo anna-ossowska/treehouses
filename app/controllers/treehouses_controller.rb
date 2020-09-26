@@ -4,4 +4,8 @@ class TreehousesController < ApplicationController
    @treehouse = Treehouse.find(params[:id]) 
   end
 
+
+  def index
+    @treehouses = Treehouse.all
+  end
 end
