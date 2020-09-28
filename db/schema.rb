@@ -10,9 +10,49 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 2020_09_28_124618) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "bookings", force: :cascade do |t|
+    t.bigint "treehouse_id", null: false
+    t.bigint "user_id", null: false
+    t.date "check_in"
+    t.date "check_out"
+    t.integer "number_of_guests"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["treehouse_id"], name: "index_bookings_on_treehouse_id"
+    t.index ["user_id"], name: "index_bookings_on_user_id"
+  end
+
+  create_table "treehouses", force: :cascade do |t|
+    t.string "name"
+    t.string "address"
+    t.text "description"
+    t.integer "price_per_night"
+    t.string "photo"
+    t.integer "beds"
+    t.integer "capacity"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_treehouses_on_user_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "photo"
+    t.text "description"
+    t.string "email"
+    t.string "phone_number"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  add_foreign_key "bookings", "treehouses"
+  add_foreign_key "bookings", "users"
+  add_foreign_key "treehouses", "users"
 end
