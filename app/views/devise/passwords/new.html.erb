@@ -1,0 +1,28 @@
+<div class="container mt-5 mb-5">
+  <div class="row justify-content-center">
+    <div class="col-6">
+      <div class="card p-5">
+
+        <h2 style="color: #65BE16;">Forgot your password?</h2><br>
+
+        <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+          <%= f.error_notification %>
+
+          <div class="form-inputs">
+            <%= f.input :email,
+                        required: true,
+                        autofocus: true,
+                        input_html: { autocomplete: "email" } %>
+          </div>
+
+          <div class="form-actions">
+            <%= f.button :submit, "Send me reset password instructions", class: "button-main mb-3" %>
+          </div>
+        <% end %>
+
+        <%= render "devise/shared/links" %>
+
+      </div>
+    </div>
+  </div>
+</div>
