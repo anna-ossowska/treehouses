@@ -1,4 +1,7 @@
 class TreehousesController < ApplicationController
-  def home
+
+
+  def index
+    @treehouses = Treehouse.all
   end
 end
