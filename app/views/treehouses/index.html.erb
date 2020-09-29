@@ -22,21 +22,30 @@
   </div>
 </div>
 
-<%# Displaying each treehouse, need them to be links #%>
+<%# Displaying each treehouse #%>
 
 <div class="container pt-3 pb-3">
-    <div class="row shadow p-3 mb-5 bg-white rounded">
+    <% @treehouses.each do |treehouse| %>
+    <%= link_to treehouse_path(treehouse), class: "cards-link" do %>
+    <div class="row shadow p-3 mb-3 mt-3 bg-white rounded" id="treehouse-card">
+
       <div class="col-6 col-md-4">
         <img src="https://source.unsplash.com/1600x900/?tree" alt="" class="w-100 h-100 rounded">
       </div>
       <div class="col-12 col-sm-6 col-md-8">
-        <h3 style="color: #119358;">Name</h3>
-        <p style="color: #000000;">Address</p>
-        <p style="color: #000000;">guests | beds </p>
-        <div class="text-right" style="color: #000000;">Price</div>
+        <h3 style="color: #119358;"><%= treehouse.name %></h3>
+        <p style="color: #000000;"><%= treehouse.address %></p>
+        <p style="color: #000000;"><%= treehouse.capacity %> guests | <%= treehouse.beds %> beds </p>
+        <div class="text-right" style="color: #000000;"><%= treehouse.price_per_night %> $ / night</div>
       </div>
+
     </div>
+    <% end %>
+     <% end %>
+
 </div>
+
+
 
 
 
