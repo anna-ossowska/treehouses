@@ -1,11 +1,9 @@
-<div class="navbar">
-  <p>Navbar</p>
-</div>
+<%# No navbar here. Its in the layots %>
 
+<%# The Carousel in the banner%>
 <div class = "banner-gray">
 
   <div class="container w-50">
-
     <div class="carousel" style="margin-bottom:-80px">
           <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
@@ -32,60 +30,36 @@
 
 </div>
 
+<%# Here are the content of the page with the cards and booking %>
 
-  <div class="midpage d-flex flex-row justify-content-around px-5" style="background-color: #f4f4f4; padding-top: 120px;" >
- 
-      <div class="info-card" style = "height: 700px; width: 750px;">
-      
-          <div class="top d-flex justify-content-between align-items-start" style= "background-color: white; border-bottom: 1px solid black; padding: 50px;"> 
+  <%# left card %>
+
+  <div class="midpage d-flex flex-row justify-content-around px-5" style="background-color: #f4f4f4; padding-top: 120px; padding-bottom:120px" >
+       <div class="info-card" style = "height: 700px; width: 750px;">   
+          <div class="top d-flex justify-content-between align-items-start" style= "background-color: white; border-bottom: 1px solid lightgrey; padding: 50px;"> 
 
              <div>
-
-                <p>Name</p>
-                <p>Address</p>
-                <p>2 guests | 2 beds </p>
-
+                <p style="color: #119358;"><%= @treehouse.name.capitalize %></p>
+                <p><%= @treehouse.address %></p>
+                <p><%= @treehouse.capacity %> guests | <%= @treehouse.beds %> beds </p>
               </div>                        
                  <%= image_tag "https://source.unsplash.com/random/300x150", class: "avatar avatar-large"%>                      
               </div>
           
-
-           <div class="content" style="background-color:white; height: 500px;">
-
-            <p style="padding: 50px;">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Veniam id animi 
-            quasi autem blanditiis debitis perferendis aperiam commodi mollitia praesentium 
-            voluptatibus perspiciatis doloribus eius iusto quia vero, alias aut? Similique distinctio..
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Veniam id animi 
-              <br>
-              <br>
-              Quasi autem blanditiis debitis perferendis aperiam commodi mollitia praesentium 
-              voluptatibus perspiciatis doloribus eius iusto quia vero, alias aut? Similique distinctio..
-              Quasi autem blanditiis debitis perferendis aperiam commodi mollitia praesentium 
-              voluptatibus perspiciatis doloribus eius iusto quia vero, alias aut? Similique distinctio..
-            </p>
-
+           <div class="content" style="background-color:white; height: 500px;">          
+              <p style="padding: 50px;">  
+                <%= @treehouse.description %> 
+              </p>
            </div>          
-
       </div>
 
-      <div class="booking-card" style = "background-color: white; height: 500px; width: 300px;">
-       
+    <%# right card %>
+
+     <div class="booking-card pt-5">  
+        <p style="font-weight: bold"><%= @treehouse.price_per_night %> kr / night </p>
+        <%= link_to "RESERVE", treehouse_path, class:"button-main"%>
       </div>      
   </div>
  
 
-<div class = "footer">
-
-</div>
-
-<%# $red: #FD1015;
-$blue:#175A88;
-$yellow: #FFC65A;
-$orange: #E67E22;
-$highlight: #65BE16;
-$green1: #119358;
-$green2: #2EA16D;
-$green3: #4FB486;
-$dark-gray: #3B3838;
-$gray: #7F7F7F;
-$light-gray: #BFBFBF; %>
+<%# no footer here, it comes from the layouts %>
