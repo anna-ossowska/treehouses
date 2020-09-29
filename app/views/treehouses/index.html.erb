@@ -1,0 +1,24 @@
+<%# navbar #%>
+<nav class="navbar navbar-light bg-light">
+  <span class="navbar-brand mb-0 h1">Navbar</span>
+</nav>
+
+<div class="banner-index shadow-sm">
+  <div class="row align-items-center">
+  <div class="form" style="margin: 0 auto;">
+
+    <%= simple_form_for :search, method: "get" do |f| %>
+      <div class="input-group">
+
+      <%= f.input :address, wrapper: false, label: false, placeholder: "Where are you going?" %>
+      <%= f.input :check_in, as: :string, required: false, wrapper: false, label: false, placeholder: "Check in", input_html: {class: "datepicker"} %>
+      <%= f.input :check_out, as: :string, required: false, wrapper: false, label: false, placeholder: "Check out", input_html: {class: "datepicker"} %>
+      <%= f.input :number_of_guests, wrapper: false, label: false, as: :integer, placeholder: "Guests" %>
+        <div class="input-group-append">
+        <%= f.button :submit, "Go", class: "btn btn-primary" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  </div>
+</div>

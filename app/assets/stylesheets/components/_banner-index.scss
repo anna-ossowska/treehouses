@@ -1,0 +1,11 @@
+.banner-index {
+  background-size: cover;
+  background-image: linear-gradient(
+      rgba(0, 0, 0, 0.3),
+      rgba(0, 0, 0, 0.3)
+    ), url('https://source.unsplash.com/1600x900/?tree');
+  background-repeat:no-repeat;
+  height: 200px;
+  text-align: center;
+  padding-top: 80px;
+}
