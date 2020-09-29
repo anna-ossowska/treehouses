@@ -9,6 +9,6 @@ class User < ApplicationRecord
   validates :first_name, :last_name, presence: true
   validates :email, format: { with: /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i }, uniqueness: true
 
-  # for cloudinary (eventually)
-  # has_one_attached :photo
+  # for cloudinary img upload
+  has_one_attached :photo
 end
