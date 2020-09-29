@@ -1,7 +1,6 @@
-<%# navbar #%>
-<nav class="navbar navbar-light bg-light">
-  <span class="navbar-brand mb-0 h1">Navbar</span>
-</nav>
+<%# navbar is inserted magically through the layouts/application#%>
+
+<%# Search bar form inside the banner-index#%>
 
 <div class="banner-index shadow-sm">
   <div class="row align-items-center">
@@ -22,3 +21,22 @@
   </div>
   </div>
 </div>
+
+<%# Displaying each treehouse, need them to be links #%>
+
+<div class="container pt-3 pb-3">
+    <div class="row shadow p-3 mb-5 bg-white rounded">
+      <div class="col-6 col-md-4">
+        <img src="https://source.unsplash.com/1600x900/?tree" alt="" class="w-100 h-100 rounded">
+      </div>
+      <div class="col-12 col-sm-6 col-md-8">
+        <h3 style="color: #119358;">Name</h3>
+        <p style="color: #000000;">Address</p>
+        <p style="color: #000000;">guests | beds </p>
+        <div class="text-right" style="color: #000000;">Price</div>
+      </div>
+    </div>
+</div>
+
+
+
