@@ -1,7 +1,6 @@
-<div class="banner-gray shadow-sm p-5">
+<div class="banner-index shadow-sm p-5">
   <div class="row align-items-center">
   <div class="form" style="margin: 0 auto;">   
-    
   </div>
   </div>
 </div>
@@ -12,23 +11,23 @@
     <div class="col-4" style="">
          <%= image_tag "https://source.unsplash.com/random/300x150", class: "avatar avatar-xlarge"%>
          <br><br>
-         <h3 class="mb-3" style="color:#65BE16"><%=@user.first_name.capitalize%> <%=@user.last_name.capitalize%></h3>
-         <p class="mb-3">E-mail: <%=@user.email%></p>
-         <p class="mb-3">Phone Number <%=@user.phone_number%></p>
+         <h3 class="mb-3" style="color:#65BE16; font-size:50px;"><%=@user.first_name.capitalize%> <%=@user.last_name.capitalize%></h3>
+         <p class="mb-3" style="font-size:25px;">E-mail: <%=@user.email%></p>
+         <p class="mb-3" style="font-size:25px;">Phone Number <%=@user.phone_number%></p>
           <div class="pt-3">
          <p style="opacity:0.7"><%=@user.description%></p>
          </div>
     </div>
 
-     <div class="col-8" style = "background-color: #f4f4f4">  
-      <h1 class="m-3" style="font-weight:bold">Bookings</h1>
-        <div class="card shadow mb-5 bg-white rounded" style="width: 25rem;">
+     <div class="col-8">  
+      <h1 class="m-3 text-muted" style="font-weight:bold; font-size:50px;">My Bookings</h1>
+        <div class="card shadow mb-5 bg-white rounded" style="width: 72rem;">
           <div class="card-body">
-            <h5 class="card-title"><%= @treehouse.capitalize  %></h5>
-            <p class="card-text"> Check in: <%= @booking.check_in %> </p>
-            <p class="card-text"> Check in: <%= @booking.check_out %> </p>
-            <p class="card-text"> Check in: <%= @booking.number_of_guests %></p>
-            <a href="#" class="button-secondary"> Edit </a>
+            <h5 class="card-title p-2" style="font-size:25px">Treehouse name: <%= @treehouse.capitalize  %></h5>
+            <p class="card-text p-2" style="font-size:25px;"> Check in: <%= @booking.check_in %> </p>
+            <p class="card-text p-2" style="font-size:25px;"> Check in: <%= @booking.check_out %> </p>
+            <p class="card-text p-2" style="font-size:25px;"> Check in: <%= @booking.number_of_guests %></p>
+            <a href="#" class="button-secondary" style="font-size:25px"> Edit </a>
           </div>
        </div>
 
