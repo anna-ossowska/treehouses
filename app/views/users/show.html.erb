@@ -1,2 +1,45 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<div class="container-fluid">
+
+  <%# Row 1  %>
+
+  <div class="row">
+    <div class="col-4 p-3" style="">
+         <%= image_tag "https://source.unsplash.com/random/300x150", class: "avatar avatar-xlarge"%>
+         <h1>Name: <%=@user.first_name%> <%=@user.last_name%></h1>
+         <p style="opacity:0.7">E-mail: <%=@user.email%></p>
+         <p style="border-bottom: 1px solid grey; opacity:0.7 ">Phone Number <%=@user.phone_number%></p>
+          <div class="pt-3">
+         <p style= "opacity:0.7"><%=@user.description%></p>
+         </div>
+    </div>
+     <div class="col-6 bg-info text-white">   
+
+    </div>
+  </div>
+
+  <%# Row 2 %>
+
+  <%# <div class="row">
+    <div class="col-6 text-white p-5">
+         
+    </div>
+    
+    <div class="col-6 bg-info text-white">   
+      Here the bookings will show after a while
+    </div>
+  </div> %>
+
+</div>
+
+<%# // For example:
+$red: #FD1015;
+$blue:#175A88;
+$yellow: #FFC65A;
+$orange: #E67E22;
+$highlight: #65BE16;
+$green1: #119358;
+$green2: #2EA16D;
+$green3: #4FB486;
+$dark-gray: #3B3838;
+$gray: #7F7F7F;
+$light-gray: #BFBFBF; %>
