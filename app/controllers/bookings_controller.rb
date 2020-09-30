@@ -18,9 +18,10 @@ class BookingsController < ApplicationController
     @booking.user = current_user
 
     if @booking.save
+      flash[:notice] = "Booking Confirmed!"
       redirect_to @treehouse
     else
-      raise
+      flash[:alert] = "Booking Failed"
       redirect_to @treehouse
     end
   end
