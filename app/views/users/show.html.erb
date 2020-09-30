@@ -1,21 +1,45 @@
+<div class="banner-index shadow-sm">
+  <div class="row align-items-center">
+  <div class="form" style="margin: 0 auto;">   
+    
+  </div>
+  </div>
+</div>
+
 <div class="container-fluid">
-
   <%# Row 1  %>
-
   <div class="row">
     <div class="col-4 p-3" style="">
          <%= image_tag "https://source.unsplash.com/random/300x150", class: "avatar avatar-xlarge"%>
-         <h1>Name: <%=@user.first_name%> <%=@user.last_name%></h1>
+         <h1>Name: <%=@user.first_name.capitalize%> <%=@user.last_name.capitalize%></h1>
          <p style="opacity:0.7">E-mail: <%=@user.email%></p>
-         <p style="border-bottom: 1px solid grey; opacity:0.7 ">Phone Number <%=@user.phone_number%></p>
+         <p>Phone Number <%=@user.phone_number%></p>
           <div class="pt-3">
          <p style= "opacity:0.7"><%=@user.description%></p>
          </div>
     </div>
-     <div class="col-6 bg-info text-white">   
 
-    </div>
+     <div class="col-8" style = "background-color: #f4f4f4">  
+      <h1 class="m-3">Bookings</h1>
+      <div class= "card m-3">
+        <p style="font-weight: bold">Treehouse: <%= @treehouse.capitalize %></p>
+        <p>Check in: <%= @booking.check_in %></p>
+        <p>Check out<%= @booking.check_out %></p>
+        <p>Number of guests:<%= @booking.number_of_guests %></p>               
+      </div>
+
+      </div>
   </div>
+
+
+  <%# id: 1,
+ treehouse_id: 1,
+ user_id: 2,
+ check_in: Wed, 30 Sep 2020,
+ check_out: Fri, 02 Oct 2020,
+ number_of_guests: 1, %>
+
+
 
   <%# Row 2 %>
 
@@ -33,6 +57,7 @@
 
 <%# // For example:
 $red: #FD1015;
+
 $blue:#175A88;
 $yellow: #FFC65A;
 $orange: #E67E22;
