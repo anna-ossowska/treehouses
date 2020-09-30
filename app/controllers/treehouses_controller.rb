@@ -15,7 +15,7 @@ class TreehousesController < ApplicationController
   end
 
   def new
-    @treehouse = Treehous.new
+    @treehouse = Treehouse.new
     authorize @treehouse
   end
 
