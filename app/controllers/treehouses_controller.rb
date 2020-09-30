@@ -10,8 +10,7 @@ class TreehousesController < ApplicationController
 
 
   def index
-    @treehouses = Treehouse.search(params)
-    @treehouses = policy_scope(Treehouse).order(created_at: :desc)
+    @treehouses = policy_scope(Treehouse.search(params)).order(created_at: :desc)
   end
 
   def new
