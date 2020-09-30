@@ -26,10 +26,10 @@ puts "Completed user #{User.last.first_name}!"
 puts 'Creating 5 fake treehouses...'
 5.times do
   treehouse = Treehouse.new(
-    name: Faker::Lorem.word,
+    name: Faker::Address.street_name,
     address: Faker::Address.street_address,
     description: Faker::Lorem.paragraphs,
-    price_per_night: rand(1000..5000),
+    price_per_night: rand(500..2500),
     beds: rand(1..5),
     capacity: rand(1..10)
   )
