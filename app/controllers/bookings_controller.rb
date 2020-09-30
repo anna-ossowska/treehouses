@@ -4,6 +4,7 @@ class BookingsController < ApplicationController
 
   def index
     @bookings = @treehouse.bookings
+    @bookings = policy_scope(Booking).order(created_at: :desc)
   end
 
   def show; end
@@ -16,10 +17,12 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.treehouse = @treehouse
     @booking.user = current_user
+    authorize @booking
 
     if @booking.save
       flash[:notice] = "Booking Confirmed!"
-      redirect_to @treehouse
+      redirect_to user_path(current_user)
+
     else
       flash[:alert] = "Booking Failed"
       redirect_to @treehouse
