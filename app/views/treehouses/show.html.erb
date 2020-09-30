@@ -27,7 +27,7 @@
           </a>
       </div>
     </div>
-
+  </div>
 </div>
 
 <%# Here are the content of the page with the cards and booking %>
@@ -50,24 +50,26 @@
               <p style="padding: 50px;">
                 <%= @treehouse.description %>
               </p>
-           </div>
+        </div>
       </div>
 
     <%# right card %>
 
-     <div class="booking-card pt-5">
+     <div class="booking-card p-5" style="text-align: center">
         <p style="font-weight: bold"><%= @treehouse.price_per_night %> kr / night </p>
-        <%#<div class="form" style="margin: 0 auto;">
-          <%#= simple_form_for([@treehouse, @booking]) do |f| %>
-          <%#<div class="input-group">
-          <%#= f.input :check_in, as: :string, required: false, wrapper: false, label: false, placeholder: "Check in date", input_html: {class: "datepicker"} %>
-          <%#= f.input :check_out, as: :string, required: false, wrapper: false, label: false, placeholder: "Check out date", input_html: {class: "datepicker"} %>
-          <%#= f.input :number_of_guests, wrapper: false, label: false, as: :integer, placeholder: "Guests" %>
-          <%#= f.submit 'RESERVE', class:"button-main"%> %>
-          <%# end %>
-        </div>
+         <div class="container" style="margin: 0 auto;">
+          <%= simple_form_for([@treehouse, @booking]) do |f| %>
+            <%= f.input :check_in, as: :string, required: false, wrapper: false, label: false, placeholder: "Check in date", input_html: {class: "datepicker"} %>
+            <br>
+            <%= f.input :check_out, as: :string, required: false, wrapper: false, label: false, placeholder: "Check out date", input_html: {class: "datepicker"} %>
+            <br>
+            <%= f.input :number_of_guests, wrapper: false, label: false, as: :integer, placeholder: "Number of guests" %>
+            <br>
+            <%= f.submit 'Confirm Booking', class:"button-main"%>
+          <% end %>
       </div>
   </div>
+</div>
 
 
 <%# no footer here, it comes from the layouts %>
