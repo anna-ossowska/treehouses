@@ -56,7 +56,7 @@
     <%# right card %>
 
      <div class="booking-card p-5" style="text-align: center">
-        <p style="font-weight: bold"><%= @treehouse.price_per_night %> kr / night </p>
+        <p style="font-weight: bold"><%= @treehouse.price_per_night %> NOK / night </p>
          <div class="container" style="margin: 0 auto;">
           <%= simple_form_for([@treehouse, @booking]) do |f| %>
             <%= f.input :check_in, as: :string, required: false, wrapper: false, label: false, placeholder: "Check in date", input_html: {class: "datepicker"} %>

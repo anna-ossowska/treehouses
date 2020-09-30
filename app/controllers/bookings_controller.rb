@@ -20,9 +20,11 @@ class BookingsController < ApplicationController
     authorize @booking
 
     if @booking.save
+      flash[:notice] = "Booking Confirmed!"
       redirect_to user_path(current_user)
+
     else
-      raise
+      flash[:alert] = "Booking Failed"
       redirect_to @treehouse
     end
   end
