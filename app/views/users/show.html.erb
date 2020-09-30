@@ -1,4 +1,4 @@
-<div class="banner-index shadow-sm">
+<div class="banner-gray shadow-sm p-5">
   <div class="row align-items-center">
   <div class="form" style="margin: 0 auto;">   
     
@@ -8,28 +8,36 @@
 
 <div class="container-fluid">
   <%# Row 1  %>
-  <div class="row">
-    <div class="col-4 p-3" style="">
+  <div class="row p-5">
+    <div class="col-4" style="">
          <%= image_tag "https://source.unsplash.com/random/300x150", class: "avatar avatar-xlarge"%>
-         <h1>Name: <%=@user.first_name.capitalize%> <%=@user.last_name.capitalize%></h1>
-         <p style="opacity:0.7">E-mail: <%=@user.email%></p>
-         <p>Phone Number <%=@user.phone_number%></p>
+         <br><br>
+         <h3 class="mb-3" style="color:#65BE16"><%=@user.first_name.capitalize%> <%=@user.last_name.capitalize%></h3>
+         <p class="mb-3">E-mail: <%=@user.email%></p>
+         <p class="mb-3">Phone Number <%=@user.phone_number%></p>
           <div class="pt-3">
-         <p style= "opacity:0.7"><%=@user.description%></p>
+         <p style="opacity:0.7"><%=@user.description%></p>
          </div>
     </div>
 
      <div class="col-8" style = "background-color: #f4f4f4">  
-      <h1 class="m-3">Bookings</h1>
-      <div class= "card m-3">
-        <p style="font-weight: bold">Treehouse: <%= @treehouse.capitalize %></p>
-        <p>Check in: <%= @booking.check_in %></p>
-        <p>Check out<%= @booking.check_out %></p>
-        <p>Number of guests:<%= @booking.number_of_guests %></p>               
-      </div>
+      <h1 class="m-3" style="font-weight:bold">Bookings</h1>
+        <div class="card shadow mb-5 bg-white rounded" style="width: 25rem;">
+          <div class="card-body">
+            <h5 class="card-title"><%= @treehouse.capitalize  %></h5>
+            <p class="card-text"> Check in: <%= @booking.check_in %> </p>
+            <p class="card-text"> Check in: <%= @booking.check_out %> </p>
+            <p class="card-text"> Check in: <%= @booking.number_of_guests %></p>
+            <a href="#" class="button-secondary"> Edit </a>
+          </div>
+       </div>
 
+      
       </div>
   </div>
+
+
+
 
 
   <%# id: 1,
