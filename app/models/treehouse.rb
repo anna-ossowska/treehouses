@@ -7,4 +7,15 @@ class Treehouse < ApplicationRecord
 
   # for cloudinary
   has_many_attached :photos
+
+  scope :search, lambda { |params|
+    result = all
+    capacity = params['capacity']
+    result = where("capacity >= ?", capacity) if capacity
+    # code for search on address below, will check this once we have bookings
+    # includes(:bookings).merge(Booking.where('check_out <= ? AND check_in >= ?', params[:check_in], params[:check_in]).or.where( 'check_out <= ? AND check_in >= ?', params[:check_in], params[:check_out]))
+  }
+
+
+
 end

@@ -4,6 +4,6 @@ class TreehousesController < ApplicationController
   end
 
   def index
-    @treehouses = Treehouse.all
+    @treehouses = Treehouse.search(params)
   end
 end
