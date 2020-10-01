@@ -33,7 +33,11 @@
     <div class="row shadow p-3 mb-3 mt-3 bg-white rounded" id="treehouse-card">
 
       <div class="col-6 col-md-4">
+        <% if treehouse.photo.attached? %>
+        <%= cl_image_tag treehouse.photo.key, height: 190, width: 340, crop: :fill, class: "rounded" %>
+        <% else %>
         <img src="https://source.unsplash.com/1600x900/?tree" alt="" class="w-100 h-100 rounded">
+        <% end %>
       </div>
       <div class="col-12 col-sm-6 col-md-8">
         <h3 style="color: #119358;"><%= treehouse.name %></h3>
@@ -49,6 +53,7 @@
 </div>
 
 
+<% image_url = 'https://source.unsplash.com/1600x900/?tree' %>
 
 
 
