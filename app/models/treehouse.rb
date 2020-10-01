@@ -16,4 +16,10 @@ class Treehouse < ApplicationRecord
     # includes(:bookings).merge(Booking.where('check_out <= ? AND check_in >= ?', params[:check_in], params[:check_in]).or.where( 'check_out <= ? AND check_in >= ?', params[:check_in], params[:check_out]))
   }
 
+  def unavailable_dates
+    bookings.pluck(:check_in, :check_out).map do |range|
+      { from: range[0], to: range[1] }
+    end
+  end
+
 end
