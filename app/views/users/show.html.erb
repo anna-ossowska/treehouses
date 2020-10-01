@@ -1,43 +1,46 @@
-<div class="banner-index shadow-sm p-5">
-  <div class="row align-items-center">
-  <div class="form" style="margin: 0 auto;">
-  </div>
-  </div>
+<div class="banner-index shadow-sm" style="height:150px; background-image: linear-gradient(
+      rgba(0, 0, 0, 0.3),
+      rgba(0, 0, 0, 0.3)
+    ), url('https://images.unsplash.com/photo-1500829243541-74b677fecc30?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2555&q=80');">
+
 </div>
 
-<div class="container">
-  <%# Row 1  %>
-  <div class="row p-5">
-    <div class="col-4" style="">
-         <%= image_tag "https://source.unsplash.com/random/300x150", class: "avatar avatar-xlarge"%>
-         <br><br>
-         <h3 class="mb-3" style="color:#65BE16; font-size:50px;"><%=@user.first_name.capitalize%> <%=@user.last_name.capitalize%></h3>
-         <p class="mb-3" style="font-size:25px;">E-mail: <%=@user.email%></p>
-         <p class="mb-3" style="font-size:25px;">Phone Number <%=@user.phone_number%></p>
-          <div class="pt-3">
-         <p style="opacity:0.7"><%=@user.description%></p>
-         </div>
+<div class="container mt-5 mb-5">
+
+      <div class="row p-2">
+        <div class="card shadow col-md-4 p-5 bg-white rounded text-center d-block"><br>
+            <%= image_tag "https://source.unsplash.com/random/300x150", class: "avatar avatar-xlarge mb-2"%>
+            <hr><br>
+            <h3 class="mt-2" style="color:#65BE16; font-size:30px;"><strong><%=@user.first_name.capitalize%> <%=@user.last_name.capitalize%></strong></h3>
+            <br>
+            <p style="font-size:18px;"><%=@user.email%></p>
+        </div>
+      <hr>
+        <div class="card col-md-8 p-5 bg-white rounded border-0">
+              <div class="card-body">
+                <h2 class="text-muted p-2"><strong style="font-size:30px;"> <i class="far fa-calendar-check pr-3" style="color:#65BE16;"></i>My Bookings</strong></h2><br>
+                  <% if @bookings %>
+                    <% @bookings.each do |booking| %>
+                      <h5 class="card-title p-2" style="color:#65BE16; font-size:20px"><strong><%= booking.treehouse.name.upcase %></strong></h5>
+                      <hr style="background-color:#65BE16;">
+                      <p class="card-text p-2 text-muted" style="font-size:20px;"><strong>Check in</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= booking.check_in %> </p>
+                      <p class="card-text p-2 text-muted" style="font-size:20px;"><strong>Check out</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= booking.check_out %> </p>
+                      <p class="card-text p-2 text-muted" style="font-size:20px;"><strong>Nr of guests</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= booking.number_of_guests %></p>
+                      <br>
+                      <span class="button-main mt-3" style="font-size:20px;"> <%= link_to 'Delete', booking_path(booking.id), method: :delete, data: { confirm: "Are you sure?" }, class: "text-decoration-none text-white" %></span>
+                    <% end %>
+                  <% else %>
+                    <p> You have no bookings with us just yet!</p>
+                  <% end %>
+              </div>
+        </div>
+
+
     </div>
-
-     <div class="col-8">
-      <h1 class="m-3 text-muted" style="font-weight:bold; font-size:50px;">My Bookings</h1>
-        <div class="card shadow mb-5 bg-white rounded" style="width: 72rem;">
-          <div class="card-body">
-            <% if @bookings %>
-              <% @bookings.each do |booking| %>
-                <h5 class="card-title p-2" style="font-size:25px">Treehouse name: <%= booking.treehouse.name.capitalize %></h5>
-                <p class="card-text p-2" style="font-size:25px;"> Check in: <%= booking.check_in %> </p>
-                <p class="card-text p-2" style="font-size:25px;"> Check in: <%= booking.check_out %> </p>
-                <p class="card-text p-2" style="font-size:25px;"> Check in: <%= booking.number_of_guests %></p>
-                <div class="button-secondary" style="font-size:25px"> <%= link_to 'Delete', booking_path(booking.id), method: :delete, data: { confirm: "Are you sure?" } %></div>
-              <% end %>
-            <% else %>
-              <p> You have no bookings with us just yet!</p>
-            <% end %>
-          </div>
-       </div>
-
-
-      </div>
   </div>
 </div>
+
+
+
+
+ 
