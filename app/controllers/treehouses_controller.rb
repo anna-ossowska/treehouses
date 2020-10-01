@@ -5,6 +5,7 @@ class TreehousesController < ApplicationController
   def show
     @treehouses = policy_scope(Treehouse)
     @booking = Booking.new
+    @markers = [{ lat: @treehouse.latitude, lng: @treehouse.longitude }]
   end
 
   def index
