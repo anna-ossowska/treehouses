@@ -1,6 +1,5 @@
 import mapboxgl from 'mapbox-gl';
 
-
 // build the map
 const buildMap = (mapElement) => {
   mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
@@ -27,7 +26,6 @@ const fitMapToMarkers = (map, markers) => {
   markers.forEach(marker => bounds.extend([ marker.lng, marker.lat ]));
   map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 2 });
 };
-
 
 // This is called first!
 
