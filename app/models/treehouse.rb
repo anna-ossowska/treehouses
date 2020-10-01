@@ -6,7 +6,7 @@ class Treehouse < ApplicationRecord
   validates :beds, :capacity, :price_per_night, presence: true, numericality: { only_integer: true }
 
   # for cloudinary
-  has_many_attached :photos
+  has_one_attached :photo
 
   # for geocoding
   geocoded_by :address
