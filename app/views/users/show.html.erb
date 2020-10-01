@@ -1,6 +1,6 @@
 <div class="banner-index shadow-sm p-5">
   <div class="row align-items-center">
-  <div class="form" style="margin: 0 auto;">   
+  <div class="form" style="margin: 0 auto;">
   </div>
   </div>
 </div>
@@ -19,26 +19,27 @@
          </div>
     </div>
 
-     <div class="col-8">  
+     <div class="col-8">
       <h1 class="m-3 text-muted" style="font-weight:bold; font-size:50px;">My Bookings</h1>
         <div class="card shadow mb-5 bg-white rounded" style="width: 72rem;">
           <div class="card-body">
-            <h5 class="card-title p-2" style="font-size:25px">Treehouse name: <%= @treehouse.capitalize  %></h5>
-            <p class="card-text p-2" style="font-size:25px;"> Check in: <%= @booking.check_in %> </p>
-            <p class="card-text p-2" style="font-size:25px;"> Check in: <%= @booking.check_out %> </p>
-            <p class="card-text p-2" style="font-size:25px;"> Check in: <%= @booking.number_of_guests %></p>
-            <a href="#" class="button-secondary" style="font-size:25px"> Edit </a>
+            <% if @bookings %>
+              <% @bookings.each do |booking| %>
+                <h5 class="card-title p-2" style="font-size:25px">Treehouse name: <%= booking.treehouse.name.capitalize  %></h5>
+                <p class="card-text p-2" style="font-size:25px;"> Check in: <%= booking.check_in %> </p>
+                <p class="card-text p-2" style="font-size:25px;"> Check in: <%= booking.check_out %> </p>
+                <p class="card-text p-2" style="font-size:25px;"> Check in: <%= booking.number_of_guests %></p>
+                <a href="#" class="button-secondary" style="font-size:25px"> Edit </a>
+              <% end %>
+            <% else %>
+              <p> You have no bookings with us just yet!</p>
+            <% end %>
           </div>
        </div>
 
-      
+
       </div>
   </div>
-
-
-
-
-
   <%# id: 1,
  treehouse_id: 1,
  user_id: 2,
@@ -46,16 +47,14 @@
  check_out: Fri, 02 Oct 2020,
  number_of_guests: 1, %>
 
-
-
   <%# Row 2 %>
 
   <%# <div class="row">
     <div class="col-6 text-white p-5">
-         
+
     </div>
-    
-    <div class="col-6 bg-info text-white">   
+
+    <div class="col-6 bg-info text-white">
       Here the bookings will show after a while
     </div>
   </div> %>
