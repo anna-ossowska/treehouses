@@ -10,7 +10,8 @@ class TreehousesController < ApplicationController
 
   def index
     @treehouses = policy_scope(Treehouse.search(params)).order(created_at: :desc)
-    # the `geocoded` scope filters only flats with coordinates (latitude & longitude)
+    
+    # setting the lat, long to each treehouse
     @markers = @treehouses.geocoded.map do |treehouse|
       {
         lat: treehouse.latitude,
@@ -19,8 +20,6 @@ class TreehousesController < ApplicationController
       end
     end
     
-
-
   def new
     @treehouse = Treehouse.new
     authorize @treehouse
