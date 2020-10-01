@@ -12,29 +12,30 @@ Treehouse.destroy_all
 User.destroy_all
 
 puts 'Creating a fake user...'
-User.create(
-  first_name: Faker::Name.first_name,
-  last_name: Faker::Name.last_name,
-  description: Faker::Lorem.paragraphs,
-  email: Faker::Internet.email,
-  phone_number: Faker::PhoneNumber.cell_phone,
-  password: "passwords"
-
-  )
+10.times do
+  User.create(
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name,
+    description: Faker::Lorem.paragraphs,
+    email: Faker::Internet.email,
+    phone_number: Faker::PhoneNumber.cell_phone,
+    password: "passwords"
+    )
+end
 puts "Completed user #{User.last.first_name}!"
 
-puts 'Creating 5 fake treehouses...'
-5.times do
+puts 'Creating 20 fake treehouses...'
+20.times do
   treehouse = Treehouse.new(
     name: Faker::Address.street_name,
-    address: Faker::Address.street_address,
+    address: %w[Songsvann Ekeberg Frognerseter Østmarka Ullevålseter Vetterkollen Holmenkollen Frysja Maridalsvannet Kolsåstoppen Bygdøy Nøklevannet].sample,
     description: Faker::Lorem.paragraphs,
     price_per_night: rand(500..2500),
     beds: rand(1..5),
     capacity: rand(1..10)
   )
 
-  treehouse.user = User.last
+  treehouse.user = User.all.sample
   treehouse.save
   puts "treehouse: #{treehouse.name}"
   puts "owner: #{treehouse.user.first_name}"
