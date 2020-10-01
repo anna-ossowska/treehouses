@@ -1,6 +1,6 @@
 class BookingsController < ApplicationController
   before_action :set_booking_treehouse, only: %i[new index show create]
-  before_action :set_booking, only: %i[new index show]
+  before_action :set_booking, only: %i[new index show destroy]
 
   def index
     @bookings = @treehouse.bookings
@@ -27,6 +27,15 @@ class BookingsController < ApplicationController
       flash[:alert] = "Booking Failed"
       redirect_to @treehouse
     end
+  end
+
+  def destroy
+    authorize @booking
+    @booking.destroy
+
+    flash[:alert] = "Booking Cancelled!"
+
+    redirect_to @booking.user
   end
 
   private

@@ -15,4 +15,5 @@ Rails.application.routes.draw do
   resources :treehouses, only: %i[index show new create] do
     resources :bookings, only: %i[new create]
   end
+  resources :bookings, only: %i[destroy]
 end
