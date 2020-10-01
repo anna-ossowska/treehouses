@@ -57,8 +57,9 @@
 
      <div class="booking-card p-5" style="text-align: center">
         <p style="font-weight: bold"><%= @treehouse.price_per_night %> NOK / night </p>
-         <div class="container" style="margin: 0 auto;">
+         <div class="container widget-content" style="margin: 0 auto;" data-unavailable="<%= @treehouse.unavailable_dates.to_json %>">
           <%= simple_form_for([@treehouse, @booking]) do |f| %>
+
             <%= f.input :check_in, as: :string, required: false, wrapper: false, label: false, placeholder: "Check in date", input_html: { id: "range_start" } %>
             <br>
             <%= f.input :check_out, as: :string, required: false, wrapper: false, label: false, placeholder: "Check out date", input_html: { id: "range_end" } %>
