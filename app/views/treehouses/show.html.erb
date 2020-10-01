@@ -34,10 +34,9 @@
 
   <%# left card %>
 
-  <div class="midpage d-flex flex-row justify-content-around px-5" style="background-color: #f4f4f4; padding-top: 120px; padding-bottom:120px" >
-       <div class="info-card" style = "height: 700px; width: 750px;">
-          <div class="top d-flex justify-content-between align-items-start" style= "background-color: white; border-bottom: 1px solid lightgrey; padding: 50px;">
-
+<div class="midpage d-flex flex-row justify-content-center mt-3" style="background-color: #f4f4f4; padding-top: 120px; padding-bottom:120px" >
+      <div class="info-card" style = "height: 700px; width: 750px;">
+        <div class="top d-flex justify-content-between align-items-start" style= "background-color: white; border-bottom: 1px solid lightgrey; padding: 50px;">
              <div>
                 <p style="color: #119358;"><%= @treehouse.name.capitalize %></p>
                 <p><%= @treehouse.address %></p>
@@ -50,25 +49,29 @@
               <p style="padding: 50px;">
                 <%= @treehouse.description %>
               </p>
+         </div>
+      </div>
+    
+    <%# this cretes space between cards %>
+    <div class="p-2"></div>
+
+  <%# right card %>
+
+    <div class="booking-card p-5" style="text-align: center">
+    <p style="font-weight: bold"><%= @treehouse.price_per_night %> NOK / night </p>
+        <div class="container" style="margin: 0 auto;">
+            <%= simple_form_for([@treehouse, @booking]) do |f| %>
+              <%= f.input :check_in, as: :string, required: false, wrapper: false, label: false, placeholder: "Check in date", input_html: {class: "datepicker"} %>
+              <br>
+              <%= f.input :check_out, as: :string, required: false, wrapper: false, label: false, placeholder: "Check out date", input_html: {class: "datepicker"} %>
+              <br>
+              <%= f.input :number_of_guests, wrapper: false, label: false, as: :integer, placeholder: "Number of guests" %>
+              <br>
+              <%= f.submit 'Confirm Booking', class:"button-main"%>
+            <% end %>
         </div>
-      </div>
+    </div>
 
-    <%# right card %>
-
-     <div class="booking-card p-5" style="text-align: center">
-        <p style="font-weight: bold"><%= @treehouse.price_per_night %> NOK / night </p>
-         <div class="container" style="margin: 0 auto;">
-          <%= simple_form_for([@treehouse, @booking]) do |f| %>
-            <%= f.input :check_in, as: :string, required: false, wrapper: false, label: false, placeholder: "Check in date", input_html: {class: "datepicker"} %>
-            <br>
-            <%= f.input :check_out, as: :string, required: false, wrapper: false, label: false, placeholder: "Check out date", input_html: {class: "datepicker"} %>
-            <br>
-            <%= f.input :number_of_guests, wrapper: false, label: false, as: :integer, placeholder: "Number of guests" %>
-            <br>
-            <%= f.submit 'Confirm Booking', class:"button-main"%>
-          <% end %>
-      </div>
-  </div>
 </div>
 
 
