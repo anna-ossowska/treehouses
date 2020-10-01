@@ -32,7 +32,7 @@ puts 'Creating 20 fake treehouses...'
     description: Faker::Lorem.paragraphs,
     price_per_night: rand(500..2500),
     beds: rand(1..5),
-    capacity: rand(1..10)
+    capacity: rand(2..10)
   )
 
   treehouse.user = User.all.sample
