@@ -43,9 +43,16 @@
           <%= @treehouse.description %>
         </p>
       </div>
+
+
+    <%# right card %>
+
+
       <div class="col-4">
-        <div class="card bg-white rounded shadow border-0 p-5">
+        <div class="card bg-white rounded shadow border-0 p-5 widget-content" data-unavailable="<%= @treehouse.unavailable_dates.to_json %>">
+
           <%= simple_form_for([@treehouse, @booking]) do |f| %>
+
             <%= f.input :check_in, as: :string, required: false, wrapper: false, label: false, placeholder: "Check in date", input_html: { id: "range_start" } %>
             <br>
             <%= f.input :check_out, as: :string, required: false, wrapper: false, label: false, placeholder: "Check out date", input_html: { id: "range_end" } %>
