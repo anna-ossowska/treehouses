@@ -8,6 +8,10 @@ class Treehouse < ApplicationRecord
   # for cloudinary
   has_many_attached :photos
 
+  # for geocoding
+  geocoded_by :address
+  after_validation :geocode, if: :will_save_change_to_address?
+
   scope :search, lambda { |params|
     result = all
     capacity = params['capacity']

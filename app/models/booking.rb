@@ -17,4 +17,7 @@ private
     end
  end
 
+
+  # validates_uniqueness_of :user_id, scope: :treehouse_id <---- commented out for now so you can book multiple treehouses
+
 end
