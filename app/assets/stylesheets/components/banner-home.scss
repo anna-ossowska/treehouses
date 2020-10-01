@@ -4,13 +4,13 @@
       rgba(0, 0, 0, 0.4)), url('https://images.unsplash.com/photo-1513517666259-d0f50f694a6f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80');
   background-size: cover;
   background-position: center;
-  padding: 150px 0;
   display: flex;
+  align-items: center;
   height: 400px;
 }
 
 .banner-home h1 {
   font-size: 70px;
   color: white;
+  margin: 0;
 }
-
