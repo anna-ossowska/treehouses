@@ -28,7 +28,7 @@ puts 'Creating 20 fake treehouses...'
 20.times do
   treehouse = Treehouse.new(
     name: Faker::Address.street_name,
-    address: %w[Songsvann Ekeberg Frognerseter Østmarka Ullevålseter Vetterkollen Holmenkollen Frysja Maridalsvannet Kolsåstoppen Bygdøy Nøklevannet].sample,
+    address: %w[Songsvann Ekeberg Frognerseter Østmarka Ullevålseter Vettakollen Holmenkollen Frysja Maridalsvannet Kolsåstoppen Bygdøy Nøklevannet].sample,
     description: Faker::Lorem.paragraphs,
     price_per_night: rand(500..2500),
     beds: rand(1..5),
