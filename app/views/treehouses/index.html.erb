@@ -1,17 +1,13 @@
 <%# navbar is inserted magically through the layouts/application#%>
-
 <%# Search bar form inside the banner-index#%>
-
 <div class="banner-index shadow-sm" style="background-image: linear-gradient(
       rgba(0, 0, 0, 0.3),
       rgba(0, 0, 0, 0.3)
     ), url('https://res.cloudinary.com/dwzhk2thi/image/upload/v1601583065/bannerleaf_vlqhq9.jpg');">
   <div class="row align-items-center">
   <div class="form" style="margin: 0 auto;">
-
     <%= simple_form_for "", url: treehouses_path, method: "get" do |f| %>
       <div class="input-group">
-
       <%= f.input :address, wrapper: false, label: false, placeholder: "Where are you going?" %>
       <%= f.input :check_in, as: :string, required: false, wrapper: false, label: false, placeholder: "Check in", input_html: { id: "range_start" } %>
       <%= f.input :check_out, as: :string, required: false, wrapper: false, label: false, placeholder: "Check out", input_html: { id: "range_end" } %>
@@ -24,48 +20,38 @@
   </div>
   </div>
 </div>
-
-<%# displaying the map %>
+<%# Displaying each treehouse #%>
 <div class="container">
-  <div class="row mb-3 mt-5 justify-content-center">
-    <col class="col-4">
-      <div class="shadow" id="map"
-      style="width: 50%; height: 300px;"
-      data-markers="<%= @markers.to_json %>"
-      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+  <div class="row" style="padding-top:50px;">
+    
+    <div class="col-6">
+      <% @treehouses.each do |treehouse| %>
+        <%= link_to treehouse_path(treehouse), class: "cards-link" do %>
+          <div class="row shadow p-3 mb-3 bg-white rounded" id="treehouse-card">
+
+            <div class="col-8 col-md-4">
+              <% if treehouse.photo.attached? %>
+              <%= cl_image_tag treehouse.photo.key, height: 190, width: 340, crop: :fill, class: "rounded" %>
+              <% else %>
+              <img src="https://source.unsplash.com/1600x900/?tree" alt="" class="w-100 h-100 rounded">
+              <% end %>
+            </div>
+            <div class="col-12 col-sm-6 col-md-8">
+              <h3 style="color: #119358;"><%= treehouse.name %></h3>
+              <p style="color: #000000;"><%= treehouse.address %></p>
+              <p style="color: #000000;"><%= treehouse.capacity %> guests | <%= treehouse.beds %> beds </p>
+              <div class="text-right" style="color: #000000;"><%= treehouse.price_per_night %> NOK / night</div>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+     <div class="col-6">
+      <div class="shadow rounded" id="map"
+          style="width:100%; height: calc(75vh - 56px); position: sticky; top: 56px;"
+          data-markers="<%= @markers.to_json %>"
+          data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+        </div>
     </div>
   </div>
 </div>
-
-<%# Displaying each treehouse #%>
-
-<div class="container pt-3 pb-3">
-    <% @treehouses.each do |treehouse| %>
-    <%= link_to treehouse_path(treehouse), class: "cards-link" do %>
-    <div class="row shadow p-3 mb-3 mt-3 bg-white rounded" id="treehouse-card">
-
-      <div class="col-6 col-md-4">
-        <% if treehouse.photo.attached? %>
-        <%= cl_image_tag treehouse.photo.key, height: 190, width: 340, crop: :fill, class: "rounded" %>
-        <% else %>
-        <img src="https://source.unsplash.com/1600x900/?tree" alt="" class="w-100 h-100 rounded">
-        <% end %>
-      </div>
-      <div class="col-12 col-sm-6 col-md-8">
-        <h3 style="color: #119358;"><%= treehouse.name %></h3>
-        <p style="color: #000000;"><%= treehouse.address %></p>
-        <p style="color: #000000;"><%= treehouse.capacity %> guests | <%= treehouse.beds %> beds </p>
-        <div class="text-right" style="color: #000000;"><%= treehouse.price_per_night %> NOK / night</div>
-      </div>
-    </div>
-    <% end %>
-     <% end %>
-</div>
-
-
-
-
-<% image_url = 'https://source.unsplash.com/1600x900/?tree' %>
-
-
-
