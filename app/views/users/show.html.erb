@@ -8,7 +8,7 @@
 
   <div class="row p-2">
     <div class="card shadow col-md-4 p-5 bg-white rounded text-center d-block"><br>
-        <%= image_tag "https://source.unsplash.com/random/300x150", class: "avatar avatar-xlarge mb-2"%>
+        <%= image_tag "https://source.unsplash.com/random/300x150", class: "avatar avatar-xlarge mb-2", style:"object-fit:cover;"%>
         <hr><br>
         <h3 class="mt-2" style="color:#65BE16; font-size:30px;"><strong><%=@user.first_name.capitalize%> <%=@user.last_name.capitalize%></strong></h3>
         <br>
