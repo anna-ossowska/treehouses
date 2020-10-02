@@ -1,4 +1,5 @@
 class TreehousesController < ApplicationController
+  # These exists to trigger the defined method before performing the actions listed
   skip_before_action :authenticate_user!, only: %i[index show]
   before_action :set_treehouse, only: %i[show destroy]
 
@@ -24,6 +25,7 @@ class TreehousesController < ApplicationController
     authorize @treehouse
   end
 
+  # The treehouse and the user must be defined in order to save the booking
   def create
     @treehouse = Treehouse.new(treehouse_params)
     @treehouse.user = current_user
@@ -47,10 +49,12 @@ class TreehousesController < ApplicationController
 
   private
 
+  # sanitizes params
   def treehouse_params
     params.require(:treehouse).permit(:name, :address, :description, :price_per_night, :photo, :beds, :capacity)
   end
 
+  # sets the current treehouse id before actions
   def set_treehouse
     @treehouse = Treehouse.find(params[:id])
   end

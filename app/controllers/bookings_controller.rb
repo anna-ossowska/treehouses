@@ -1,4 +1,5 @@
 class BookingsController < ApplicationController
+  # These exists to trigger the defined method before performing the actions listed
   before_action :set_booking_treehouse, only: %i[new index show create]
   before_action :set_booking, only: %i[new index show destroy]
 
@@ -13,6 +14,7 @@ class BookingsController < ApplicationController
     @booking = Booking.new
   end
 
+  # The booking and the user must be defined in order to save the booking
   def create
     @booking = Booking.new(booking_params)
     @booking.treehouse = @treehouse
@@ -40,14 +42,17 @@ class BookingsController < ApplicationController
 
   private
 
+  # sanitizes params
   def booking_params
     params.require(:booking).permit(:treehouse_id, :check_in, :check_out, :number_of_guests)
   end
 
+  # find the current booking id before action
   def set_booking
     @booking = Booking.find(params[:id])
   end
 
+  # set the treehouse assigned to the booking befire action
   def set_booking_treehouse
     @treehouse = Treehouse.find(params[:treehouse_id])
   end
