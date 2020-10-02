@@ -8,7 +8,7 @@
 
   <div class="row p-2">
     <div class="card shadow col-md-4 p-5 bg-white rounded text-center d-block"><br>
-        <%= image_tag "https://source.unsplash.com/random/300x150", class: "avatar avatar-xlarge mb-2"%>
+        <%= image_tag "https://source.unsplash.com/random/300x150", class: "avatar avatar-xlarge mb-2", style:"object-fit:cover;"%>
         <hr><br>
         <h3 class="mt-2" style="color:#65BE16; font-size:30px;"><strong><%=@user.first_name.capitalize%> <%=@user.last_name.capitalize%></strong></h3>
         <br>
@@ -61,9 +61,9 @@
                     <hr style="background-color:#65BE16;">
                     <p class="card-text p-2 text-muted" style="font-size:20px;"><strong>Address:</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= treehouse.address %> </p>
                     <p class="card-text p-2 text-muted" style="font-size:20px;"><strong>Price per night:</strong>&nbsp;&nbsp;&nbsp;&nbsp;<%= treehouse.price_per_night %> NOK</p>
-                    <p class="card-text p-2 text-muted " style="font-size:20px;"><strong>Description:<br></strong><%= treehouse.description %>"</p>
+                    <p class="card-text p-2 text-muted " style="font-size:20px;"><strong>Description:<br></strong><%= treehouse.description %></p>
                     <br>
-                    <span class="button-main mt-3" style="font-size:20px;"> <%= link_to 'Edit', edit_treehouse_path(treehouse.id), class: "text-decoration-none text-white" %></span>
+                    <span class="button-main mt-3 mr-2" style="font-size:20px;"> <%= link_to 'Edit', edit_treehouse_path(treehouse.id), class: "text-decoration-none text-white" %></span>
                     <span class="button-main mt-3" style="font-size:20px;"> <%= link_to 'Remove', treehouse_path(treehouse.id), method: :delete, data: { confirm: "Are you sure?" }, class: "text-decoration-none text-white" %></span>
                     <p><br></p>
                     <p><br></p>

@@ -45,7 +45,7 @@
             <p><%= @treehouse.address %></p>
             <p><%= @treehouse.capacity %> guests | <%= @treehouse.beds %> beds </p>
           </div>
-          <%= image_tag "https://source.unsplash.com/random/300x150", class: "avatar avatar-large"%>
+          <%= image_tag "https://source.unsplash.com/random/300x150", class: "avatar avatar-large", style:"object-fit: cover"%>
         </div>
         <p class="py-5">
           <%= @treehouse.description %>
