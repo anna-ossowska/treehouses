@@ -61,7 +61,7 @@
                     <hr style="background-color:#65BE16;">
                     <p class="card-text p-2 text-muted" style="font-size:20px;"><strong>Address:</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= treehouse.address %> </p>
                     <p class="card-text p-2 text-muted" style="font-size:20px;"><strong>Price per night:</strong>&nbsp;&nbsp;&nbsp;&nbsp;<%= treehouse.price_per_night %> NOK</p>
-                    <p class="card-text p-2 text-muted " style="font-size:20px;"><strong>Description:<br></strong><%= treehouse.description %>"</p>
+                    <p class="card-text p-2 text-muted " style="font-size:20px;"><strong>Description:<br></strong><%= treehouse.description %></p>
                     <br>
                     <span class="button-main mt-3 mr-2" style="font-size:20px;"> <%= link_to 'Edit', edit_treehouse_path(treehouse.id), class: "text-decoration-none text-white" %></span>
                     <span class="button-main mt-3" style="font-size:20px;"> <%= link_to 'Remove', treehouse_path(treehouse.id), method: :delete, data: { confirm: "Are you sure?" }, class: "text-decoration-none text-white" %></span>
