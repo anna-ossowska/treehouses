@@ -23,7 +23,7 @@
 <%# Displaying each treehouse #%>
 <div class="container">
   <div class="row" style="padding-top:50px;">
-    
+
     <div class="col-6">
       <% @treehouses.each do |treehouse| %>
         <%= link_to treehouse_path(treehouse), class: "cards-link" do %>
@@ -31,7 +31,7 @@
 
             <div class="col-8 col-md-4">
               <% if treehouse.photo.attached? %>
-              <%= cl_image_tag treehouse.photo.key, height: 190, width: 340, crop: :fill, class: "rounded" %>
+              <%= cl_image_tag treehouse.photo.key, height: 150, width: 150, crop: :fill, class: "rounded" %>
               <% else %>
               <img src="https://source.unsplash.com/1600x900/?tree" alt="" class="w-100 h-100 rounded">
               <% end %>
