@@ -1,6 +1,6 @@
 class TreehousesController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
-  before_action :set_treehouse, only: %i[show]
+  before_action :set_treehouse, only: %i[show destroy]
 
   def show
     @treehouses = policy_scope(Treehouse)
@@ -10,16 +10,15 @@ class TreehousesController < ApplicationController
 
   def index
     @treehouses = policy_scope(Treehouse.search(params)).order(created_at: :desc)
-    
     # setting the lat, long to each treehouse
     @markers = @treehouses.geocoded.map do |treehouse|
       {
         lat: treehouse.latitude,
         lng: treehouse.longitude
       }
-      end
     end
-    
+  end
+
   def new
     @treehouse = Treehouse.new
     authorize @treehouse
@@ -35,6 +34,15 @@ class TreehousesController < ApplicationController
     else
       render :new
     end
+  end
+
+  def destroy
+    authorize @treehouse
+    @treehouse.destroy
+
+    flash[:alert] = "Rental Cancelled!"
+
+    redirect_to @treehouse.user
   end
 
   private

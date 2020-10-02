@@ -7,5 +7,11 @@ class UsersController < ApplicationController
     else
       @bookings = @user.bookings
     end
+
+    if @user.treehouses.nil?
+      return
+    else
+      @treehouses = @user.treehouses
+    end
   end
 end
