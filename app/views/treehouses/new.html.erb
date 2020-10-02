@@ -5,25 +5,41 @@
 </div>
 
 <%# New treehouse form%>
-<div class="container">
-  <div class="container" style="margin: 0 auto;">
-    <p style="font-weight: bold"> Add your treehouse: </p>
-    <%= simple_form_for(@treehouse) do |f| %>
-      <%= f.input :name, as: :string, required: false, wrapper: false, label: false, placeholder: "House name" %>
-      <br>
-      <%= f.input :address, as: :string, required: false, wrapper: false, label: false, placeholder: "Address" %>
-      <br>
-      <%= f.input :description, as: :text, wrapper: false, label: false, placeholder: "Description" %>
-      <br>
-      <%= f.input :price_per_night, as: :integer, wrapper: false, label: false, placeholder: "Price per night" %>
-      <br>
-      <%= f.input :beds, as: :integer, wrapper: false, label: false, placeholder: "No. of beds" %>
-      <br>
-      <%= f.input :capacity, as: :integer, wrapper: false, label: false, placeholder: "Max capacity" %>
-      <br>
-      <%= f.input :photo, as: :file %>
-      <br>
-      <%= f.submit 'Submit', class:"button-main"%>
-    <% end %>
+<div class="container mt-5 mb-5">
+  <div class="row justify-content-center">
+    <div class="col-7">
+      <div class="card p-5">
+        <div class="container">
+          <h2 class="pb-1 text-center" style="font-weight:bold; color:#65BE16;"> Add your treehouse</h2>
+          <p class="pb-3 text-center" style="font-size:18px;">Become a host in <strong class="text-muted">7 steps</strong></p>
+          <hr style="background-color:#65BE16;">
+          <br>
+          <%= simple_form_for(@treehouse) do |f| %>
+            <strong class="text-muted"><%= f.label "Treehouse name:" %></strong>
+            <%= f.input :name, as: :string, required: false, wrapper: false, label: false, placeholder: "Enter the treehouse name" %>
+            <p class="pb-3"></p>
+            <strong class="text-muted"><%= f.label "Address:" %></strong>
+            <%= f.input :address, as: :string, required: false, wrapper: false, label: false, placeholder: "Enter the address" %>
+            <p class="pb-3"></p>
+            <strong class="text-muted"><%= f.label "Description:" %></strong>
+            <%= f.input :description, as: :text, wrapper: false, label: false, placeholder: "Tell us more about your treehouse" %>
+            <p class="pb-3"></p>
+            <strong class="text-muted"><%= f.label "Price per night:" %></strong>
+            <%= f.input :price_per_night, as: :integer, wrapper: false, label: false, placeholder: "Enter the price" %>
+            <p class="pb-3"></p>
+            <strong class="text-muted"><%= f.label "Number of beds:" %></strong>
+            <%= f.input :beds, as: :integer, wrapper: false, label: false, placeholder: "Enter the number" %>
+            <p class="pb-3"></p>
+            <strong class="text-muted"><%= f.label "Maximum capacity:" %></strong>
+            <%= f.input :capacity, as: :integer, wrapper: false, label: false, placeholder: "Enter the number" %>
+            <p class="pb-3"></p>
+            <strong class="text-muted"><%= f.input :photo, as: :file %></strong>
+            <p class="pb-3"></p>
+            <%= f.submit 'Submit', class: "button-main" %>
+            <%= link_to 'Cancel', treehouses_path, class: "button-secondary ml-2" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
