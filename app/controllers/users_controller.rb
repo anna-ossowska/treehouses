@@ -5,13 +5,13 @@ class UsersController < ApplicationController
     @user = current_user
 
     if @user.bookings[0].nil?
-      return
+      @bookings = nil
     else
       @bookings = @user.bookings
     end
 
     if @user.treehouses[0].nil?
-      return
+      @treehouses = nil
     else
       @treehouses = @user.treehouses
     end

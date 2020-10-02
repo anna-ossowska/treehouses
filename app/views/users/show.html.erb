@@ -44,7 +44,10 @@
                   <p><br></p>
                 <% end %>
               <% else %>
-                <p> You have no bookings with us just yet!</p>
+                <p>You have no bookings with us just yet!</p>
+                <p>Visit our home page to begin your journey</p>
+                <br>
+                <span class="button-main mt-3" style="font-size:20px;"> <%= link_to 'Search for treehouses', treehouses_path, class: "text-decoration-none text-white" %></span>
               <% end %>
             </div>
             <%# Tab 2 %>
@@ -63,7 +66,10 @@
                     <p><br></p>
                   <% end %>
                 <% else %>
-                  <p> You have no treehouses set up for rent just yet!</p>
+                  <p>You have no treehouses up for rent just yet!</p>
+                  <p>Let's get you set up with your first rental</p>
+                  <br>
+                  <span class="button-main mt-3" style="font-size:20px;"> <%= link_to 'Add a treehouse', new_treehouse_path, class: "text-decoration-none text-white" %></span>
                 <% end %>
             </div>
           </div>
