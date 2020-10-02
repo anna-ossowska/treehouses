@@ -11,6 +11,8 @@ require 'faker'
 Treehouse.destroy_all
 User.destroy_all
 
+description_list = ["A quaint apartment located in the heart of the forest.", "Want to relax in nature but also be able to walk to the shops? Our little cottage has it all!", "Residing in a little alcove in the forests, this little cabin will help you live out your fairytale dreams.", "Want to experience a true night in the wilderness? Book in at our rustic lodge and lose yourself in nature.", "Ideal for the glamping, we aim to bring class and style in to your night under the stars.", "Witness spectaular views all while living in comfort."]
+
 puts 'Creating a fake user...'
 10.times do
   User.create(
@@ -29,9 +31,9 @@ puts 'Creating 20 fake treehouses...'
   treehouse = Treehouse.new(
     name: Faker::Address.street_name,
     address: %w[Songsvann Ekeberg Frognerseter Østmarka Ullevålseter Vettakollen Holmenkollen Frysja Maridalsvannet Kolsåstoppen Bygdøy Nøklevannet].sample,
-    description: Faker::Lorem.paragraphs,
+    description: description_list.sample,
     price_per_night: rand(500..2500),
-    beds: rand(1..5),
+    beds: rand(1..4),
     capacity: rand(2..10)
   )
 
