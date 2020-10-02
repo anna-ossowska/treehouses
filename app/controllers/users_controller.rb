@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  # implemented some logic here to check if the current user has any bookings
+  # or treehouses assigned yet. This is for showing in the user profile
   def show
     @user = current_user
 
@@ -8,7 +10,7 @@ class UsersController < ApplicationController
       @bookings = @user.bookings
     end
 
-    if @user.treehouses.nil?
+    if @user.treehouses[0].nil?
       return
     else
       @treehouses = @user.treehouses

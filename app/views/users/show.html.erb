@@ -17,6 +17,7 @@
 
     <div class="card col-md-8 p-5 bg-white rounded border-0">
       <div class="card-body">
+        <%# Tabs for the bookings/rentals %>
         <ul class="nav nav-tabs mb-4" id="myTab" role="tablist">
           <li class="nav-item">
             <a class="nav-link active" id="bookings-tab" data-toggle="tab" href="#bookings" role="tab" aria-controls="bookings" aria-selected="true">Bookings</a>
@@ -25,6 +26,8 @@
             <a class="nav-link" id="treehouses-tab" data-toggle="tab" href="#treehouses" role="tab" aria-controls="treehouses" aria-selected="false">My Treehouses</a>
           </li>
         </ul>
+        <%# Content containers for each tab %>
+        <%# Tab 1 %>
         <div class="tab-content">
           <div class="tab-pane active" id="bookings" role="tabpanel" aria-label="bookings-tab">
             <h2 class="text-muted p-2"><strong style="font-size:30px;"> <i class="far fa-calendar-check pr-3" style="color:#65BE16;"></i>My Bookings</strong></h2><br>
@@ -44,6 +47,7 @@
                 <p> You have no bookings with us just yet!</p>
               <% end %>
             </div>
+            <%# Tab 2 %>
             <div class="tab-pane" id="treehouses" role="tabpanel" aria-label="treehouses-tab">
               <h2 class="text-muted p-2"><strong style="font-size:30px;"> <i class="far fa-calendar-check pr-3" style="color:#65BE16;"></i>My Treehouses</strong></h2><br>
                 <% if @treehouses %>
