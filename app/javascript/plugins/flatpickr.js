@@ -16,7 +16,7 @@ const toggleDateInputs = function() {
   const endDateInput = document.getElementById('range_end');
   console.log(startDateInput, endDateInput);
   if (startDateInput && endDateInput) {
-    const unvailableDates = JSON.parse(document.querySelector('.widget-content').dataset.unavailable)
+    const unvailableDates = JSON.parse(document.querySelector('#widget-content').dataset.unavailable)
     console.log(unvailableDates);
     flatpickr(startDateInput, {
       minDate: 'today',
