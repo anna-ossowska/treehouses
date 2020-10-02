@@ -1,1 +1,22 @@
-edit.html.erb
+<div class="banner-index shadow-sm" style="height:150px; background-image: linear-gradient(
+      rgba(0, 0, 0, 0.3),
+      rgba(0, 0, 0, 0.3)
+    ), url('https://res.cloudinary.com/dwzhk2thi/image/upload/v1601583065/bannerleaf_vlqhq9.jpg');">
+</div>
+
+<%#Edit treehouse form%>
+<div class="container mt-5 mb-5">
+  <div class="row justify-content-center">
+    <div class="col-7">
+      <div class="card p-5">
+        <div class="container">
+          <h2 class="pb-1 text-center" style="font-weight:bold; color:#65BE16;"> Edit your treehouse</h2>
+          <p class="pb-3 text-center" style="font-size:18px;">Please re enter your <strong class="text-muted">details</strong></p>
+          <hr style="background-color:#65BE16;">
+          <br>
+          <%= render 'form', treehouse: @treehouse %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

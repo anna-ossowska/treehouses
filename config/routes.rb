@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
   # Add upon these routes as and when you need to make a view
-  resources :treehouses, only: %i[index show new create destroy] do
+  resources :treehouses, only: %i[index show new create edit update destroy] do
     resources :bookings, only: %i[new create]
   end
   resources :bookings, only: %i[destroy]

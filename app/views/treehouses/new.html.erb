@@ -14,30 +14,7 @@
           <p class="pb-3 text-center" style="font-size:18px;">Become a host in <strong class="text-muted">7 steps</strong></p>
           <hr style="background-color:#65BE16;">
           <br>
-          <%= simple_form_for(@treehouse) do |f| %>
-            <strong class="text-muted"><%= f.label "Treehouse name:" %></strong>
-            <%= f.input :name, as: :string, required: false, wrapper: false, label: false, placeholder: "Enter the treehouse name" %>
-            <p class="pb-3"></p>
-            <strong class="text-muted"><%= f.label "Address:" %></strong>
-            <%= f.input :address, as: :string, required: false, wrapper: false, label: false, placeholder: "Enter the address" %>
-            <p class="pb-3"></p>
-            <strong class="text-muted"><%= f.label "Description:" %></strong>
-            <%= f.input :description, as: :text, wrapper: false, label: false, placeholder: "Tell us more about your treehouse" %>
-            <p class="pb-3"></p>
-            <strong class="text-muted"><%= f.label "Price per night:" %></strong>
-            <%= f.input :price_per_night, as: :integer, wrapper: false, label: false, placeholder: "Enter the price" %>
-            <p class="pb-3"></p>
-            <strong class="text-muted"><%= f.label "Number of beds:" %></strong>
-            <%= f.input :beds, as: :integer, wrapper: false, label: false, placeholder: "Enter the number" %>
-            <p class="pb-3"></p>
-            <strong class="text-muted"><%= f.label "Maximum capacity:" %></strong>
-            <%= f.input :capacity, as: :integer, wrapper: false, label: false, placeholder: "Enter the number" %>
-            <p class="pb-3"></p>
-            <strong class="text-muted"><%= f.input :photo, as: :file %></strong>
-            <p class="pb-3"></p>
-            <%= f.submit 'Submit', class: "button-main" %>
-            <%= link_to 'Cancel', treehouses_path, class: "button-secondary ml-2" %>
-          <% end %>
+          <%= render 'form', treehouse: @treehouse %>
         </div>
       </div>
     </div>
