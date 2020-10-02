@@ -1,7 +1,7 @@
 class TreehousesController < ApplicationController
   # These exists to trigger the defined method before performing the actions listed
   skip_before_action :authenticate_user!, only: %i[index show]
-  before_action :set_treehouse, only: %i[show destroy]
+  before_action :set_treehouse, only: %i[show destroy edit update]
 
   def show
     @treehouses = policy_scope(Treehouse)
@@ -35,6 +35,19 @@ class TreehousesController < ApplicationController
       redirect_to @treehouse
     else
       render :new
+    end
+  end
+
+  def edit
+    authorize @treehouse
+  end
+
+  def update
+    authorize @treehouse
+    if @treehouse.update(treehouse_params)
+      redirect_to @treehouse.user
+    else
+      render :edit
     end
   end
 
